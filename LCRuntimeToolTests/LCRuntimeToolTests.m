@@ -61,7 +61,11 @@
  */
 - (void)testGetClassInheritChain {
     
-    NSLog(@"%@", [UITableView lc_classInheritChain]);
+    void (^testBlock)(void) = ^{
+        NSLog(@"testBlock");
+    };
+    
+    NSLog(@"%@", [[testBlock class] lc_classInheritChain]);
 }
 
 @end

@@ -9,7 +9,7 @@ Runtime Tool
 ---
 
 # 中文介绍
-轻量级的运行时工具库
+轻量级的运行时工具库.
 
 # 安装
 ## CocoaPods
@@ -49,9 +49,13 @@ Runtime Tool
 ```objective-c
 - (void)testGetClassInheritChain {
     
-    NSLog(@"%@", [UITableView lc_classInheritChain]);
+    void (^testBlock)(void) = ^{
+        NSLog(@"testBlock");
+    };
+    
+    NSLog(@"%@", [[testBlock class] lc_classInheritChain]);
 }
-// 打印结果: UITableView -> UIScrollView -> UIView -> UIResponder -> NSObject
+// 打印结果: __NSGlobalBlock__ -> __NSGlobalBlock -> NSBlock -> NSObject
 ```
 
 # 许可证
